@@ -1,0 +1,43 @@
+<div class="card">
+  <h5 class="card-header">Desencriptar</h5>
+  <div class="card-body">
+    <div class="form-group">
+      <label for="text">Texto encriptado</label>
+      <input type="text" class="form-control" id="text" placeholder="Ingresa texto a desencriptar" [(ngModel)]="value">
+    </div>
+    <div class="form-group pt-2">
+      <label for="textHexadecimal">Texto encriptado hexadecimal</label>
+      <input type="text" class="form-control" id="textHexadecimal"
+             placeholder="Ingresa texto a desencriptar en hexadecimal" [(ngModel)]="valueHexadecimal"
+      (change)="convertTextHexadecimal()">
+    </div>
+    <div class="input-group pt-2">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="keySize">Tamaño de la clave</label>
+      </div>
+      <select class="custom-select" id="keySize" [(ngModel)]="keySize">
+        <option selected value="256">256 bit</option>
+        <option value="512">512 bit</option>
+        <option value="1024">1024 bit</option>
+        <option value="2048">2048 bit</option>
+        <option value="4096">4096 bit</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="key">Clave privada</label>
+      <textarea class="form-control" id="key" rows="10" placeholder="Ingrese la clave privada"
+                [(ngModel)]="key"></textarea>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="textEncrypt">Texto desencriptado</label>
+      <textarea class="form-control" id="textEncrypt" readonly rows="3">{{textDecrypt}}</textarea>
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+    <div class="row-cols-4">
+      <button type="button" class="btn btn-success" (click)="run()">Realizar</button>
+      <button type="button" class="btn btn-warning" (click)="clear()">Limpiar</button>
+    </div>
+  </div>
+</div>

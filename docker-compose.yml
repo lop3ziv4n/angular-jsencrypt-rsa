@@ -1,0 +1,14 @@
+version: '3.5'
+
+services:
+
+  angular-jsencrypt:
+    container_name: angular-jsencrypt
+    image: angular-jsencryptr/nginx:alpine
+    build:
+      context: .
+      args:
+        env: prod
+    restart: always
+    ports:
+      - '8080:80'
